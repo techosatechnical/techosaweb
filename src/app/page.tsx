@@ -105,13 +105,13 @@ export default function Home() {
 
         {/* ───────────── NAVBAR ───────────── */}
         <nav
+          className="navbar"
           style={{
             position: "relative",
             zIndex: 50,
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            padding: "0 48px",
             height: "72px",
             background: "transparent",
           }}
@@ -156,6 +156,7 @@ export default function Home() {
 
           {/* Nav links (Pill shape) */}
           <div
+            className="nav-links"
             style={{
               display: "flex",
               alignItems: "center",
@@ -261,9 +262,9 @@ export default function Home() {
           }}
         >
           <div
+            className="hero-content"
             style={{
               width: "100%",
-              padding: "0 5cm 0 4.5cm",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -271,9 +272,10 @@ export default function Home() {
             }}
           >
             {/* LEFT: Text content */}
-            <div style={{ flex: "0 0 auto", maxWidth: "650px" }}>
+            <div className="hero-text-container" style={{ flex: "0 0 auto" }}>
               {/* Trust badges */}
               <div
+                className="trust-badges"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -305,7 +307,7 @@ export default function Home() {
                 </div>
 
                 {/* Vertical separator */}
-                <div style={{ width: "1px", height: "48px", background: "rgba(0,0,0,0.13)" }} />
+                <div className="vertical-sep" style={{ width: "1px", height: "48px", background: "rgba(0,0,0,0.13)" }} />
 
                 {/* Envato Elite */}
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
@@ -332,8 +334,8 @@ export default function Home() {
 
               {/* Main headline */}
               <h1
+                className="main-headline"
                 style={{
-                  fontSize: "clamp(48px, 6vw, 76px)",
                   fontWeight: "800",
                   lineHeight: 1.1,
                   color: "#1a1a2e",
@@ -389,6 +391,7 @@ export default function Home() {
 
             {/* RIGHT: Banner illustration */}
             <div
+              className="hero-image-wrapper"
               style={{
                 flex: "1 1 auto",
                 display: "flex",
@@ -398,9 +401,9 @@ export default function Home() {
               }}
             >
               <div
+                className="hero-image-container"
                 style={{
                   position: "relative",
-                  width: "min(820px, 68vw)",
                   aspectRatio: "1.31",
                 }}
               >
@@ -419,6 +422,29 @@ export default function Home() {
 
       {/* Inline CSS for hover states & reusable classes */}
       <style>{`
+        .navbar { padding: 0 48px; }
+        .hero-content { padding: 0 5cm 0 4.5cm; flex-direction: row; }
+        .hero-text-container { max-width: 650px; }
+        .hero-image-container { width: min(820px, 68vw); }
+        .main-headline { font-size: clamp(48px, 6vw, 76px); }
+
+        @media (max-width: 1200px) {
+          .hero-content { padding: 0 2rem; }
+        }
+
+        @media (max-width: 768px) {
+          .navbar { padding: 0 20px; }
+          .nav-links { display: none !important; }
+          .hero-content { flex-direction: column; padding: 40px 20px; text-align: center; }
+          .hero-text-container { max-width: 100%; display: flex; flex-direction: column; align-items: center; }
+          .trust-badges { flex-direction: column; gap: 16px !important; margin-bottom: 24px !important; }
+          .vertical-sep { width: 100% !important; height: 1px !important; }
+          .main-headline { font-size: clamp(36px, 8vw, 48px) !important; }
+          .hero-image-wrapper { width: 100%; justify-content: center !important; margin-top: 30px; }
+          .hero-image-container { width: 100% !important; max-width: 500px; padding-bottom: 76%; /* Fallback for aspect-ratio */ }
+          .float-bubble { display: none !important; }
+        }
+
         .nav-item:hover span { color: #7B5EA7 !important; }
 
         .cta-btn {
