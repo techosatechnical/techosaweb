@@ -1,11 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
+import React, { useState, useEffect } from "react";
 
 export default function HeroSection() {
+  const words = ["University.", "High School.", "Kindergarten."];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
+      <style>{`
+        @keyframes floatDown {
+          0% { opacity: 0; transform: translateY(-15px); }
+          15% { opacity: 1; transform: translateY(0); }
+          85% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(15px); }
+        }
+        .animate-float-down {
+          animation: floatDown 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          display: inline-block;
+        }
+      `}</style>
       {/* ───────────── HERO CONTENT ───────────── */}
 
       <div className="float-bubble" style={{ top: "88px", left: "58%" }}>
@@ -157,27 +179,17 @@ export default function HeroSection() {
               <div style={{ whiteSpace: "nowrap" }}>sites in minutes</div>
               <div style={{ whiteSpace: "nowrap" }}>
                 for{" "}
-                <TypeAnimation
-                  sequence={[
-                    "University.",
-                    2500,
-                    "High School.",
-                    2500,
-                    "Kindergarten.",
-                    2500,
-                  ]}
-                  wrapper="span"
-                  cursor={true}
-                  repeat={Infinity}
+                <span
+                  key={index}
+                  className="animate-float-down bg-linear-65 from-indigo-600 to-fuchsia-400"
                   style={{
-                    backgroundImage:
-                      "linear-gradient(135deg, #7B5EA7 0%, #5B8DEF 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
-                    display: "inline-block",
                   }}
-                />
+                >
+                  {words[index]}
+                </span>
               </div>
             </h1>
 

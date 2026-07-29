@@ -7,6 +7,8 @@ import FeaturesSection from "@/components/FeaturesSection";
 import CustomizeSection from "@/components/CustomizeSection";
 import ElementsSection from "@/components/ElementsSection";
 import CourseShowcaseSection from "@/components/CourseShowcaseSection";
+import NewsletterSection from "@/components/NewsletterSection";
+import FooterSection from "@/components/FooterSection";
 
 export default function Home() {
   return (
@@ -145,6 +147,12 @@ export default function Home() {
 
       {/* Course Showcase Section */}
       <CourseShowcaseSection />
+
+      {/* Newsletter Section */}
+      <NewsletterSection />
+
+      {/* Footer Section */}
+      <FooterSection />
 
       {/* Inline CSS for hover states & reusable classes */}
       <style>{`
