@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 export default function FooterSection() {
   return (
@@ -12,44 +13,8 @@ export default function FooterSection() {
           {/* Column 1: Logo & Description */}
           <div className="flex flex-col items-start pr-4">
             {/* Logo */}
-            <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "20px" }}>
-              <div
-                style={{
-                  width: "38px",
-                  height: "38px",
-                  background: "linear-gradient(135deg, #4461E4, #A445E7)",
-                  borderRadius: "10px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 4px 12px rgba(68, 97, 228, 0.3)",
-                }}
-              >
-                <span
-                  style={{
-                    color: "white",
-                    fontWeight: "800",
-                    fontSize: "15px",
-                    fontStyle: "italic",
-                    letterSpacing: "-1px",
-                  }}
-                >
-                  hi
-                </span>
-              </div>
-              <span
-                style={{
-                  fontSize: "22px",
-                  fontWeight: "800",
-                  color: "#9b51e0",
-                  background: "linear-gradient(90deg, #4461E4, #A445E7)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  letterSpacing: "-0.5px",
-                }}
-              >
-                Study
-              </span>
+            <div className="mb-5 flex items-center">
+              <Image src="/images/techosa.png" alt="Techosa Logo" width={150} height={42} className="object-contain" />
             </div>
 
             <p className="text-[#666] text-lg leading-relaxed mb-8 max-w-90">

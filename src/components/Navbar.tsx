@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   return (
     <nav
@@ -13,41 +15,8 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-        <div
-          style={{
-            width: "38px",
-            height: "38px",
-            background: "linear-gradient(135deg, #7B5EA7, #5B8DEF)",
-            borderRadius: "10px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 4px 12px rgba(123,94,167,0.4)",
-          }}
-        >
-          <span
-            style={{
-              color: "white",
-              fontWeight: "800",
-              fontSize: "15px",
-              fontStyle: "italic",
-              letterSpacing: "-1px",
-            }}
-          >
-            hi
-          </span>
-        </div>
-        <span
-          style={{
-            fontSize: "22px",
-            fontWeight: "800",
-            color: "#7B5EA7",
-            letterSpacing: "-0.5px",
-          }}
-        >
-          Study
-        </span>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <Image src="/images/techosa.png" alt="Techosa Logo" width={150} height={42} style={{ objectFit: "contain" }} />
       </div>
 
       {/* Nav links (Pill shape) */}
